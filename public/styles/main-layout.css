@@ -1,0 +1,1688 @@
+/* ============================================
+   MainLayout - Modern Design CSS
+   ============================================ */
+
+/* Layout Structure */
+.main-layout {
+  @apply h-screen flex flex-col overflow-hidden;
+  @apply bg-linear-to-br from-gray-50 via-white to-gray-100;
+  @apply dark:from-gray-900 dark:via-gray-900 dark:to-gray-800;
+}
+
+.main-content {
+  @apply flex-1 overflow-auto;
+}
+
+/* ============================================
+   Header
+   ============================================ */
+.main-header {
+  @apply relative z-50;
+  @apply border-b border-gray-200/50 dark:border-gray-700/50;
+  @apply backdrop-blur-xl bg-white/70 dark:bg-gray-900/70;
+}
+
+.main-header-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  @apply flex items-center justify-between h-16;
+}
+
+/* Logo */
+.main-logo {
+  @apply flex items-center gap-2;
+  @apply text-xl font-bold;
+  @apply text-gray-900 dark:text-white;
+}
+
+.main-logo-icon {
+  @apply text-2xl;
+}
+
+.main-logo-text {
+  @apply bg-linear-to-r from-indigo-600 to-purple-600;
+  @apply bg-clip-text text-transparent;
+}
+
+/* Navigation */
+.main-nav {
+  @apply hidden md:flex items-center gap-1;
+}
+
+.main-nav-link {
+  @apply px-3 py-2 rounded-lg;
+  @apply text-sm font-medium text-gray-600 dark:text-gray-300;
+  @apply hover:text-gray-900 dark:hover:text-white;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+  @apply transition-all duration-200;
+  @apply flex items-center gap-1.5;
+}
+
+.main-nav-link-active {
+  @apply text-indigo-600 dark:text-indigo-400;
+  @apply bg-indigo-50 dark:bg-indigo-900/30;
+}
+
+.main-nav-icon {
+  @apply text-base;
+}
+
+/* Header Actions */
+.main-header-actions {
+  @apply flex items-center gap-3;
+}
+
+.main-icon-button {
+  @apply w-10 h-10 flex items-center justify-center;
+  @apply rounded-lg text-lg;
+  @apply text-gray-600 dark:text-gray-300;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+  @apply transition-all duration-200;
+  @apply cursor-pointer;
+}
+
+.main-button-outline {
+  @apply px-4 py-2 rounded-lg;
+  @apply text-sm font-medium;
+  @apply text-gray-700 dark:text-gray-200;
+  @apply border border-gray-300 dark:border-gray-600;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+  @apply transition-all duration-200;
+}
+
+.main-button-primary {
+  @apply px-4 py-2 rounded-lg;
+  @apply text-sm font-medium text-white;
+  @apply bg-linear-to-r from-indigo-600 to-purple-600;
+  @apply hover:from-indigo-700 hover:to-purple-700;
+  @apply shadow-lg shadow-indigo-500/25;
+  @apply transition-all duration-200;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.main-footer {
+  @apply border-t border-gray-200/50 dark:border-gray-700/50;
+  @apply backdrop-blur-xl bg-white/70 dark:bg-gray-900/70;
+}
+
+.main-footer-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  @apply flex items-center justify-between h-14;
+}
+
+.main-footer-brand {
+  @apply flex items-center gap-4;
+}
+
+.main-footer-logo {
+  @apply text-sm font-semibold text-gray-900 dark:text-white;
+}
+
+.main-footer-copyright {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+}
+
+.main-footer-nav {
+  @apply flex items-center gap-4;
+}
+
+.main-footer-link {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+  @apply hover:text-gray-900 dark:hover:text-white;
+  @apply transition-colors duration-200;
+}
+
+/* ============================================
+   Reusable Components - Main Style
+   ============================================ */
+
+/* Modal */
+.main-modal-overlay {
+  @apply fixed inset-0 z-50;
+  @apply bg-black/50 backdrop-blur-sm;
+  @apply flex items-center justify-center p-4;
+}
+
+.main-modal {
+  @apply w-full max-w-lg;
+  @apply bg-white dark:bg-gray-800;
+  @apply rounded-2xl shadow-2xl;
+  @apply border border-gray-200 dark:border-gray-700;
+}
+
+.main-modal-header {
+  @apply flex items-center justify-between;
+  @apply px-6 py-4;
+  @apply border-b border-gray-200 dark:border-gray-700;
+}
+
+.main-modal-title {
+  @apply text-lg font-semibold;
+  @apply text-gray-900 dark:text-white;
+}
+
+.main-modal-close {
+  @apply w-8 h-8 flex items-center justify-center;
+  @apply rounded-lg text-gray-500;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-700;
+  @apply transition-colors duration-200;
+  @apply cursor-pointer;
+}
+
+.main-modal-body {
+  @apply px-6 py-4;
+}
+
+.main-modal-footer {
+  @apply flex items-center justify-end gap-3;
+  @apply px-6 py-4;
+  @apply border-t border-gray-200 dark:border-gray-700;
+}
+
+/* Input */
+.main-input {
+  @apply w-full px-4 py-3;
+  @apply bg-gray-50 dark:bg-gray-900;
+  @apply border border-gray-300 dark:border-gray-600;
+  @apply rounded-xl;
+  @apply text-gray-900 dark:text-white;
+  @apply placeholder-gray-400 dark:placeholder-gray-500;
+  @apply focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent;
+  @apply transition-all duration-200;
+}
+
+.main-input-label {
+  @apply block text-sm font-medium;
+  @apply text-gray-700 dark:text-gray-300;
+  @apply mb-2;
+}
+
+/* Select */
+.main-select {
+  @apply w-full px-4 py-3;
+  @apply bg-gray-50 dark:bg-gray-900;
+  @apply border border-gray-300 dark:border-gray-600;
+  @apply rounded-xl;
+  @apply text-gray-900 dark:text-white;
+  @apply focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent;
+  @apply transition-all duration-200;
+  @apply cursor-pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+/* Button */
+.main-btn {
+  @apply inline-flex items-center justify-center gap-2;
+  @apply px-4 py-2.5 rounded-xl;
+  @apply text-sm font-medium;
+  @apply transition-all duration-200;
+  @apply cursor-pointer;
+}
+
+.main-btn-primary {
+  @apply text-white;
+  @apply bg-linear-to-r from-indigo-600 to-purple-600;
+  @apply hover:from-indigo-700 hover:to-purple-700;
+  @apply shadow-lg shadow-indigo-500/25;
+}
+
+.main-btn-secondary {
+  @apply text-gray-700 dark:text-gray-200;
+  @apply bg-gray-100 dark:bg-gray-700;
+  @apply hover:bg-gray-200 dark:hover:bg-gray-600;
+}
+
+.main-btn-ghost {
+  @apply text-gray-700 dark:text-gray-200;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+}
+
+/* Popover */
+.main-popover {
+  @apply absolute z-50;
+  @apply min-w-48 p-2;
+  @apply bg-white dark:bg-gray-800;
+  @apply rounded-xl shadow-xl;
+  @apply border border-gray-200 dark:border-gray-700;
+}
+
+.main-popover-item {
+  @apply w-full px-3 py-2;
+  @apply text-left text-sm;
+  @apply text-gray-700 dark:text-gray-200;
+  @apply rounded-lg;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-700;
+  @apply transition-colors duration-150;
+  @apply cursor-pointer;
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+.main-hero {
+  @apply flex-1 flex flex-col items-center justify-center;
+  @apply px-4 sm:px-6 lg:px-8;
+  @apply text-center;
+}
+
+.main-hero-title {
+  @apply text-4xl sm:text-5xl lg:text-6xl font-bold;
+  @apply text-gray-900 dark:text-white;
+  @apply mb-4;
+}
+
+.main-hero-gradient {
+  @apply bg-linear-to-r from-indigo-600 via-purple-600 to-pink-600;
+  @apply bg-clip-text text-transparent;
+}
+
+.main-hero-subtitle {
+  @apply text-lg sm:text-xl;
+  @apply text-gray-600 dark:text-gray-300;
+  @apply max-w-2xl mx-auto mb-8;
+}
+
+.main-hero-actions {
+  @apply flex flex-col sm:flex-row items-center gap-4;
+}
+
+/* ============================================
+   Cards
+   ============================================ */
+.main-card {
+  @apply bg-white dark:bg-gray-800;
+  @apply rounded-2xl shadow-lg;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply p-6;
+  @apply transition-all duration-300;
+  @apply hover:shadow-xl hover:-translate-y-1;
+}
+
+.main-card-header {
+  @apply flex items-center gap-3 mb-4;
+}
+
+.main-card-icon {
+  @apply text-3xl;
+}
+
+.main-card-title {
+  @apply text-lg font-semibold;
+  @apply text-gray-900 dark:text-white;
+}
+
+.main-card-description {
+  @apply text-sm text-gray-600 dark:text-gray-400;
+}
+
+/* ============================================
+   Crystal Bubble Animation
+   ============================================ */
+.crystal-bubble-container {
+  @apply absolute inset-0 overflow-hidden pointer-events-none;
+  z-index: 0;
+}
+
+.crystal-bubble {
+  @apply absolute rounded-full;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    inset 0 0 20px rgba(255, 255, 255, 0.1),
+    0 8px 32px rgba(99, 102, 241, 0.15);
+}
+
+.dark .crystal-bubble {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    inset 0 0 20px rgba(255, 255, 255, 0.05),
+    0 8px 32px rgba(139, 92, 246, 0.2);
+}
+
+/* ============================================
+   Landing Page Sections
+   ============================================ */
+.landing-hero {
+  @apply relative flex-1 flex flex-col items-center justify-center;
+  @apply px-4 sm:px-6 lg:px-8;
+  @apply text-center;
+  @apply min-h-[calc(100vh-8rem)];
+}
+
+.landing-hero-content {
+  @apply relative z-10;
+  @apply max-w-4xl mx-auto;
+}
+
+.landing-badge {
+  @apply inline-flex items-center gap-2;
+  @apply px-4 py-2 mb-6;
+  @apply bg-indigo-100 dark:bg-indigo-900/30;
+  @apply text-indigo-700 dark:text-indigo-300;
+  @apply rounded-full text-sm font-medium;
+  @apply border border-indigo-200 dark:border-indigo-700;
+}
+
+.landing-title {
+  @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold;
+  @apply text-gray-900 dark:text-white;
+  @apply mb-6 leading-tight;
+}
+
+.landing-subtitle {
+  @apply text-lg sm:text-xl lg:text-2xl;
+  @apply text-gray-600 dark:text-gray-300;
+  @apply max-w-2xl mx-auto mb-10;
+  @apply leading-relaxed;
+}
+
+.landing-actions {
+  @apply flex flex-col sm:flex-row items-center justify-center gap-4;
+}
+
+.landing-btn-primary {
+  @apply inline-flex items-center gap-2;
+  @apply px-8 py-4 rounded-xl;
+  @apply text-lg font-semibold text-white;
+  @apply bg-linear-to-r from-indigo-600 to-purple-600;
+  @apply hover:from-indigo-700 hover:to-purple-700;
+  @apply shadow-xl shadow-indigo-500/30;
+  @apply transition-all duration-300;
+  @apply hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/40;
+}
+
+.landing-btn-secondary {
+  @apply inline-flex items-center gap-2;
+  @apply px-8 py-4 rounded-xl;
+  @apply text-lg font-semibold;
+  @apply text-gray-700 dark:text-gray-200;
+  @apply bg-white dark:bg-gray-800;
+  @apply border-2 border-gray-200 dark:border-gray-600;
+  @apply hover:border-indigo-300 dark:hover:border-indigo-500;
+  @apply transition-all duration-300;
+  @apply hover:scale-105;
+}
+
+/* Features Section */
+.landing-features {
+  @apply py-20 px-4 sm:px-6 lg:px-8;
+  @apply bg-gray-50 dark:bg-gray-800/50;
+}
+
+.landing-features-header {
+  @apply text-center mb-16;
+}
+
+.landing-features-title {
+  @apply text-3xl sm:text-4xl font-bold;
+  @apply text-gray-900 dark:text-white;
+  @apply mb-4;
+}
+
+.landing-features-subtitle {
+  @apply text-lg text-gray-600 dark:text-gray-400;
+  @apply max-w-2xl mx-auto;
+}
+
+.landing-features-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  @apply max-w-6xl mx-auto;
+}
+
+.landing-feature-card {
+  @apply bg-white dark:bg-gray-800;
+  @apply rounded-2xl p-6;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply shadow-lg;
+  @apply transition-all duration-300;
+  @apply hover:shadow-xl hover:-translate-y-2;
+}
+
+.landing-feature-icon {
+  @apply text-4xl mb-4;
+}
+
+.landing-feature-title {
+  @apply text-xl font-semibold;
+  @apply text-gray-900 dark:text-white;
+  @apply mb-2;
+}
+
+.landing-feature-description {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+/* Stats Section */
+.landing-stats {
+  @apply py-12 px-4 sm:px-6 lg:px-8;
+  @apply bg-white dark:bg-gray-900;
+}
+
+.landing-stats-grid {
+  @apply grid grid-cols-2 lg:grid-cols-4 gap-8;
+  @apply max-w-4xl mx-auto;
+}
+
+.landing-stat {
+  @apply text-center;
+}
+
+.landing-stat-value {
+  @apply text-3xl sm:text-4xl font-bold;
+  @apply bg-linear-to-r from-indigo-600 to-purple-600;
+  @apply bg-clip-text text-transparent;
+}
+
+.landing-stat-label {
+  @apply text-sm text-gray-600 dark:text-gray-400;
+  @apply mt-1;
+}
+
+/* CTA Section */
+.landing-cta {
+  @apply py-20 px-4 sm:px-6 lg:px-8;
+  @apply bg-linear-to-r from-indigo-600 to-purple-600;
+  @apply text-center;
+}
+
+.landing-cta-title {
+  @apply text-3xl sm:text-4xl font-bold text-white;
+  @apply mb-4;
+}
+
+.landing-cta-subtitle {
+  @apply text-lg text-indigo-100;
+  @apply mb-8 max-w-xl mx-auto;
+}
+
+.landing-cta-btn {
+  @apply inline-flex items-center gap-2;
+  @apply px-8 py-4 rounded-xl;
+  @apply text-lg font-semibold;
+  @apply text-indigo-600 bg-white;
+  @apply hover:bg-gray-100;
+  @apply shadow-xl;
+  @apply transition-all duration-300;
+  @apply hover:scale-105;
+}
+
+/* ============================================
+   Builder Page
+   ============================================ */
+.builder-page {
+  @apply relative min-h-full;
+  @apply py-6 px-4 sm:px-6 lg:px-8;
+}
+
+.builder-container {
+  @apply max-w-7xl mx-auto;
+  @apply flex flex-col lg:flex-row gap-6;
+}
+
+.builder-main {
+  @apply flex-1;
+}
+
+.builder-header {
+  @apply mb-8;
+}
+
+.builder-title {
+  @apply text-3xl sm:text-4xl font-bold;
+  @apply text-gray-900 dark:text-white;
+  @apply mb-2;
+}
+
+.builder-subtitle {
+  @apply text-lg text-gray-600 dark:text-gray-400;
+}
+
+/* Project Type Selection */
+.builder-project-types {
+  @apply mb-8;
+}
+
+.builder-section-title {
+  @apply text-lg font-semibold;
+  @apply text-gray-900 dark:text-white;
+  @apply mb-4;
+}
+
+.builder-project-grid {
+  @apply grid grid-cols-2 lg:grid-cols-4 gap-4;
+}
+
+.builder-project-card {
+  @apply flex flex-col items-center;
+  @apply p-4 rounded-xl;
+  @apply bg-white dark:bg-gray-800;
+  @apply border-2 border-gray-200 dark:border-gray-700;
+  @apply transition-all duration-300;
+  @apply cursor-pointer;
+  @apply hover:border-indigo-300 dark:hover:border-indigo-600;
+  @apply hover:shadow-lg hover:-translate-y-1;
+}
+
+.builder-project-card.selected {
+  @apply border-indigo-500 dark:border-indigo-400;
+  @apply bg-indigo-50 dark:bg-indigo-900/30;
+  @apply shadow-lg;
+}
+
+.builder-project-icon {
+  @apply text-4xl mb-2;
+}
+
+.builder-project-name {
+  @apply font-semibold text-gray-900 dark:text-white;
+  @apply text-center;
+}
+
+.builder-project-price {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+  @apply mt-1;
+}
+
+/* Category Filter */
+.builder-category-filter {
+  @apply flex flex-wrap gap-2 mb-6;
+  @apply pb-4 border-b border-gray-200 dark:border-gray-700;
+}
+
+.builder-category-btn {
+  @apply px-4 py-2 rounded-lg;
+  @apply text-sm font-medium;
+  @apply bg-gray-100 dark:bg-gray-800;
+  @apply text-gray-600 dark:text-gray-400;
+  @apply transition-all duration-200;
+  @apply cursor-pointer;
+  @apply hover:bg-gray-200 dark:hover:bg-gray-700;
+}
+
+.builder-category-btn.active {
+  @apply bg-indigo-100 dark:bg-indigo-900/50;
+  @apply text-indigo-600 dark:text-indigo-400;
+}
+
+/* Feature Cards */
+.builder-features {
+  @apply space-y-8;
+}
+
+.builder-category-group {
+  @apply mb-8;
+}
+
+.builder-category-title {
+  @apply text-lg font-semibold;
+  @apply text-gray-900 dark:text-white;
+  @apply mb-4;
+}
+
+.builder-features-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+.builder-feature-card {
+  @apply relative p-4 rounded-xl;
+  @apply bg-white dark:bg-gray-800;
+  @apply border-2 border-gray-200 dark:border-gray-700;
+  @apply transition-all duration-300;
+  @apply cursor-pointer;
+  @apply hover:border-indigo-300 dark:hover:border-indigo-600;
+  @apply hover:shadow-lg;
+}
+
+.builder-feature-card.selected {
+  @apply border-indigo-500 dark:border-indigo-400;
+  @apply bg-indigo-50 dark:bg-indigo-900/20;
+}
+
+.builder-feature-card.disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.builder-feature-header {
+  @apply flex items-start justify-between mb-2;
+}
+
+.builder-feature-icon {
+  @apply text-2xl;
+}
+
+.builder-feature-checkbox {
+  @apply w-6 h-6 rounded-full;
+  @apply border-2 border-gray-300 dark:border-gray-600;
+  @apply flex items-center justify-center;
+  @apply text-xs font-bold text-white;
+  @apply transition-all duration-200;
+}
+
+.builder-feature-card.selected .builder-feature-checkbox {
+  @apply bg-indigo-500 border-indigo-500;
+}
+
+.builder-feature-name {
+  @apply font-semibold text-gray-900 dark:text-white;
+  @apply mb-1;
+}
+
+.builder-feature-description {
+  @apply text-sm text-gray-600 dark:text-gray-400;
+  @apply mb-3 line-clamp-2;
+}
+
+.builder-feature-meta {
+  @apply flex items-center justify-between;
+}
+
+.builder-feature-level {
+  @apply px-2 py-0.5 rounded text-xs font-medium;
+}
+
+.builder-feature-level.level-basic {
+  @apply bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400;
+}
+
+.builder-feature-level.level-standard {
+  @apply bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400;
+}
+
+.builder-feature-level.level-premium {
+  @apply bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400;
+}
+
+.builder-feature-price {
+  @apply font-semibold text-gray-900 dark:text-white;
+}
+
+.builder-feature-deps {
+  @apply mt-2 text-xs text-amber-600 dark:text-amber-400;
+}
+
+.builder-feature-popular {
+  @apply absolute top-2 right-2;
+  @apply px-2 py-0.5 rounded-full;
+  @apply bg-red-100 dark:bg-red-900/30;
+  @apply text-red-600 dark:text-red-400;
+  @apply text-xs font-medium;
+}
+
+/* Summary Panel */
+.builder-summary {
+  @apply w-full lg:w-80 xl:w-96;
+  @apply sticky top-6;
+  @apply bg-white dark:bg-gray-800;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply rounded-2xl p-6;
+  @apply shadow-xl;
+  @apply h-fit;
+}
+
+.builder-summary-title {
+  @apply text-lg font-semibold;
+  @apply text-gray-900 dark:text-white;
+  @apply mb-4;
+}
+
+.builder-summary-items {
+  @apply max-h-64 overflow-y-auto;
+  @apply space-y-2 mb-4;
+}
+
+.builder-summary-empty {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+  @apply text-center py-4;
+}
+
+.builder-summary-item {
+  @apply flex items-center justify-between;
+  @apply py-2 px-3 rounded-lg;
+  @apply bg-gray-50 dark:bg-gray-700/50;
+}
+
+.builder-summary-item-name {
+  @apply text-sm text-gray-700 dark:text-gray-300;
+  @apply flex-1 truncate;
+}
+
+.builder-summary-item-price {
+  @apply text-sm font-medium text-gray-900 dark:text-white;
+  @apply ml-2;
+}
+
+.builder-summary-divider {
+  @apply border-t border-gray-200 dark:border-gray-700;
+  @apply my-4;
+}
+
+.builder-summary-row {
+  @apply flex items-center justify-between;
+  @apply text-sm text-gray-600 dark:text-gray-400;
+  @apply py-1;
+}
+
+.builder-summary-row.discount {
+  @apply text-green-600 dark:text-green-400;
+}
+
+.builder-summary-row.total {
+  @apply text-lg font-bold;
+  @apply text-gray-900 dark:text-white;
+  @apply py-2;
+}
+
+.builder-summary-discount {
+  @apply flex items-center gap-2 py-2;
+}
+
+.builder-summary-discount label {
+  @apply text-sm text-gray-600 dark:text-gray-400;
+  @apply flex-1;
+}
+
+.builder-discount-input {
+  @apply w-20 px-3 py-1.5;
+  @apply text-sm text-center;
+  @apply bg-gray-50 dark:bg-gray-700;
+  @apply border border-gray-300 dark:border-gray-600;
+  @apply rounded-lg;
+  @apply focus:outline-none focus:ring-2 focus:ring-indigo-500;
+}
+
+.builder-export-btn {
+  @apply w-full mt-4;
+  @apply py-3 rounded-xl;
+  @apply text-white font-semibold;
+  @apply bg-linear-to-r from-indigo-600 to-purple-600;
+  @apply hover:from-indigo-700 hover:to-purple-700;
+  @apply transition-all duration-300;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply cursor-pointer;
+}
+
+/* Placeholder */
+.builder-placeholder {
+  @apply flex flex-col items-center justify-center;
+  @apply py-20;
+  @apply text-center;
+}
+
+.builder-placeholder-icon {
+  @apply text-6xl mb-4;
+}
+
+.builder-placeholder p {
+  @apply text-lg text-gray-600 dark:text-gray-400;
+}
+
+/* Dependency List */
+.builder-deps-list {
+  @apply space-y-2;
+}
+
+.builder-deps-list li {
+  @apply flex items-center gap-2;
+  @apply p-2 rounded-lg;
+  @apply bg-gray-100 dark:bg-gray-700;
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+/* Summary Actions */
+.builder-summary-actions {
+  @apply flex gap-2 mt-4;
+}
+
+.builder-reset-btn {
+  @apply flex-1 py-3 rounded-xl;
+  @apply text-gray-700 dark:text-gray-200 font-semibold;
+  @apply bg-gray-100 dark:bg-gray-700;
+  @apply hover:bg-gray-200 dark:hover:bg-gray-600;
+  @apply transition-all duration-300;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply cursor-pointer;
+}
+
+.builder-export-btn {
+  @apply flex-1 py-3 rounded-xl;
+  @apply text-white font-semibold;
+  @apply bg-linear-to-r from-indigo-600 to-purple-600;
+  @apply hover:from-indigo-700 hover:to-purple-700;
+  @apply transition-all duration-300;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply cursor-pointer;
+}
+
+/* ============================================
+   Export Modal
+   ============================================ */
+.export-modal {
+  @apply w-full max-w-4xl max-h-[90vh];
+  @apply bg-white dark:bg-gray-800;
+  @apply rounded-2xl shadow-2xl;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply flex flex-col;
+  @apply overflow-hidden;
+}
+
+.export-modal-header {
+  @apply flex items-center justify-between;
+  @apply px-6 py-4;
+  @apply border-b border-gray-200 dark:border-gray-700;
+}
+
+.export-modal-title {
+  @apply text-lg font-semibold;
+  @apply text-gray-900 dark:text-white;
+}
+
+.export-tabs {
+  @apply flex;
+  @apply border-b border-gray-200 dark:border-gray-700;
+}
+
+.export-tab {
+  @apply flex-1 py-3 px-4;
+  @apply text-sm font-medium;
+  @apply text-gray-600 dark:text-gray-400;
+  @apply hover:text-gray-900 dark:hover:text-white;
+  @apply transition-colors duration-200;
+  @apply cursor-pointer;
+}
+
+.export-tab.active {
+  @apply text-indigo-600 dark:text-indigo-400;
+  @apply border-b-2 border-indigo-600 dark:border-indigo-400;
+  @apply -mb-px;
+}
+
+.export-modal-content {
+  @apply flex-1 overflow-auto;
+  @apply p-6;
+}
+
+.export-settings {
+  @apply space-y-4;
+}
+
+.export-form-group {
+  @apply space-y-2;
+}
+
+.export-form-group label {
+  @apply block text-sm font-medium;
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.export-preview-container {
+  @apply bg-gray-100 dark:bg-gray-900;
+  @apply rounded-xl p-4;
+  @apply overflow-auto;
+  @apply max-h-[60vh];
+}
+
+.export-empty {
+  @apply text-center py-12;
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+.export-modal-footer {
+  @apply flex items-center justify-end gap-3;
+  @apply px-6 py-4;
+  @apply border-t border-gray-200 dark:border-gray-700;
+}
+
+/* ============================================
+   Quotation Preview (Print-ready)
+   ============================================ */
+.quotation-preview {
+  @apply bg-white text-gray-900;
+  @apply p-8;
+  @apply min-w-[600px];
+  font-family: 'MiSans Thai', sans-serif;
+}
+
+.quotation-header {
+  @apply flex items-start justify-between;
+  @apply pb-6 mb-6;
+  @apply border-b-2 border-gray-200;
+}
+
+.quotation-logo {
+  @apply flex items-center gap-2;
+}
+
+.quotation-logo-icon {
+  @apply text-3xl;
+}
+
+.quotation-logo-text {
+  @apply text-xl font-bold text-indigo-600;
+}
+
+.quotation-header-info {
+  @apply text-right text-sm text-gray-600;
+}
+
+.quotation-number {
+  @apply font-semibold text-gray-900;
+}
+
+.quotation-title {
+  @apply text-2xl font-bold text-center text-gray-900;
+  @apply mb-1;
+}
+
+.quotation-subtitle {
+  @apply text-sm text-center text-gray-500;
+  @apply mb-8;
+}
+
+.quotation-client-section,
+.quotation-project-section,
+.quotation-items-section,
+.quotation-notes-section {
+  @apply mb-6;
+}
+
+.quotation-section-title {
+  @apply text-sm font-semibold text-gray-700;
+  @apply mb-3 pb-2;
+  @apply border-b border-gray-200;
+}
+
+.quotation-client-info,
+.quotation-project-info {
+  @apply space-y-1;
+}
+
+.quotation-client-row,
+.quotation-project-row {
+  @apply flex gap-4;
+  @apply text-sm;
+}
+
+.quotation-client-row .label,
+.quotation-project-row .label {
+  @apply w-24 text-gray-500;
+}
+
+.quotation-client-row .value,
+.quotation-project-row .value {
+  @apply text-gray-900 font-medium;
+}
+
+/* Quotation Table */
+.quotation-table {
+  @apply w-full;
+  @apply border-collapse;
+  @apply text-sm;
+}
+
+.quotation-table th {
+  @apply bg-gray-100 text-gray-700 font-semibold;
+  @apply py-2 px-3;
+  @apply text-left;
+  @apply border-y border-gray-200;
+}
+
+.quotation-table td {
+  @apply py-3 px-3;
+  @apply border-b border-gray-100;
+  @apply align-top;
+}
+
+.quotation-table .col-no {
+  @apply w-10 text-center;
+}
+
+.quotation-table .col-price {
+  @apply w-28 text-right;
+}
+
+.quotation-table .item-name {
+  @apply font-medium text-gray-900;
+}
+
+.quotation-table .item-desc {
+  @apply text-xs text-gray-500;
+  @apply mt-1;
+}
+
+/* Quotation Summary */
+.quotation-summary-section {
+  @apply mt-6 pt-4;
+  @apply border-t-2 border-gray-200;
+}
+
+.quotation-summary-row {
+  @apply flex justify-between;
+  @apply py-1 text-sm;
+}
+
+.quotation-summary-row.discount {
+  @apply text-green-600;
+}
+
+.quotation-summary-row.total {
+  @apply text-lg font-bold text-gray-900;
+  @apply pt-2 mt-2;
+  @apply border-t border-gray-200;
+}
+
+/* Quotation Notes */
+.quotation-notes {
+  @apply text-sm text-gray-600;
+  @apply p-3 bg-gray-50 rounded-lg;
+}
+
+/* Quotation Footer */
+.quotation-footer {
+  @apply mt-8 pt-6;
+  @apply border-t border-gray-200;
+}
+
+.quotation-validity {
+  @apply text-sm text-center text-gray-500;
+  @apply mb-6;
+}
+
+.quotation-terms {
+  @apply text-xs text-gray-500;
+  @apply mb-8;
+}
+
+.quotation-terms h4 {
+  @apply font-semibold text-gray-700 mb-2;
+}
+
+.quotation-terms ul {
+  @apply list-disc list-inside space-y-1;
+}
+
+.quotation-signature {
+  @apply flex justify-between gap-8;
+  @apply mt-12;
+}
+
+.signature-box {
+  @apply flex-1 text-center;
+}
+
+.signature-line {
+  @apply border-b border-gray-400;
+  @apply h-20 mb-2;
+}
+
+.signature-box span {
+  @apply text-xs text-gray-500;
+}
+
+/* Print styles */
+@media print {
+  .quotation-preview {
+    @apply p-0;
+    @apply shadow-none;
+  }
+}
+
+/* ============================================
+   Templates Page
+   ============================================ */
+.templates-page {
+  @apply relative min-h-full;
+  @apply py-6 px-4 sm:px-6 lg:px-8;
+}
+
+.templates-container {
+  @apply max-w-7xl mx-auto;
+}
+
+.templates-header {
+  @apply text-center mb-8;
+}
+
+.templates-title {
+  @apply text-3xl sm:text-4xl font-bold;
+  @apply text-gray-900 dark:text-white;
+  @apply mb-2;
+}
+
+.templates-subtitle {
+  @apply text-lg text-gray-600 dark:text-gray-400;
+}
+
+/* Search */
+.templates-search {
+  @apply max-w-md mx-auto mb-8;
+}
+
+.templates-search-input {
+  @apply w-full px-4 py-3 rounded-xl;
+  @apply bg-white dark:bg-gray-800;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply text-gray-900 dark:text-white;
+  @apply placeholder-gray-400;
+  @apply focus:outline-none focus:ring-2 focus:ring-indigo-500;
+  @apply transition-all duration-200;
+}
+
+/* Featured Templates */
+.templates-featured {
+  @apply mb-10;
+}
+
+.templates-section-title {
+  @apply text-xl font-semibold;
+  @apply text-gray-900 dark:text-white;
+  @apply mb-4;
+}
+
+.templates-featured-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+.template-featured-card {
+  @apply flex items-center gap-4;
+  @apply p-4 rounded-xl;
+  @apply bg-linear-to-r from-indigo-500 to-purple-600;
+  @apply text-white;
+  @apply shadow-lg;
+}
+
+.template-featured-icon {
+  @apply text-4xl;
+  @apply bg-white/20 rounded-xl p-3;
+}
+
+.template-featured-info {
+  @apply flex-1;
+}
+
+.template-featured-info h3 {
+  @apply font-semibold mb-1;
+}
+
+.template-featured-info p {
+  @apply text-sm text-indigo-100 line-clamp-2;
+}
+
+.template-featured-price {
+  @apply text-xs text-indigo-200 mt-2;
+}
+
+.template-featured-btn {
+  @apply px-4 py-2 rounded-lg;
+  @apply bg-white text-indigo-600 font-semibold;
+  @apply hover:bg-indigo-50;
+  @apply transition-colors duration-200;
+  @apply cursor-pointer;
+}
+
+/* Category Filter */
+.templates-categories {
+  @apply flex flex-wrap gap-2 mb-6;
+  @apply pb-4 border-b border-gray-200 dark:border-gray-700;
+}
+
+.templates-category-btn {
+  @apply px-4 py-2 rounded-lg;
+  @apply text-sm font-medium;
+  @apply bg-gray-100 dark:bg-gray-800;
+  @apply text-gray-600 dark:text-gray-400;
+  @apply transition-all duration-200;
+  @apply cursor-pointer;
+  @apply hover:bg-gray-200 dark:hover:bg-gray-700;
+}
+
+.templates-category-btn.active {
+  @apply bg-indigo-100 dark:bg-indigo-900/50;
+  @apply text-indigo-600 dark:text-indigo-400;
+}
+
+/* Templates Grid */
+.templates-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+}
+
+/* Template Card */
+.template-card {
+  @apply relative;
+  @apply bg-white dark:bg-gray-800;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply rounded-2xl p-5;
+  @apply shadow-md hover:shadow-xl;
+  @apply transition-all duration-300;
+  @apply hover:-translate-y-1;
+}
+
+.template-featured-badge {
+  @apply absolute -top-2 -right-2;
+  @apply px-2 py-1 rounded-full;
+  @apply bg-amber-400 text-amber-900;
+  @apply text-xs font-semibold;
+}
+
+.template-popular-badge {
+  @apply absolute -top-2 -left-2;
+  @apply px-2 py-1 rounded-full;
+  @apply bg-red-500 text-white;
+  @apply text-xs font-semibold;
+}
+
+.template-icon {
+  @apply text-5xl mb-4;
+}
+
+.template-name {
+  @apply font-bold text-lg;
+  @apply text-gray-900 dark:text-white;
+  @apply mb-1;
+}
+
+.template-name-en {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+  @apply mb-3;
+}
+
+.template-description {
+  @apply text-sm text-gray-600 dark:text-gray-400;
+  @apply line-clamp-3 mb-4;
+}
+
+.template-meta {
+  @apply flex items-center gap-2 mb-3;
+}
+
+.template-type {
+  @apply px-2 py-0.5 rounded;
+  @apply bg-blue-100 dark:bg-blue-900/30;
+  @apply text-blue-700 dark:text-blue-400;
+  @apply text-xs font-medium;
+}
+
+.template-features {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+}
+
+.template-tags {
+  @apply flex flex-wrap gap-1 mb-4;
+}
+
+.template-tag {
+  @apply text-xs text-gray-400 dark:text-gray-500;
+}
+
+.template-pricing {
+  @apply flex items-center justify-between;
+  @apply py-3 mb-4;
+  @apply border-t border-gray-100 dark:border-gray-700;
+}
+
+.template-price,
+.template-days {
+  @apply text-center;
+}
+
+.price-label,
+.days-label {
+  @apply block text-xs text-gray-400;
+}
+
+.price-value {
+  @apply block font-bold text-lg;
+  @apply text-indigo-600 dark:text-indigo-400;
+}
+
+.days-value {
+  @apply block font-semibold;
+  @apply text-gray-900 dark:text-white;
+}
+
+.template-use-btn {
+  @apply w-full py-3 rounded-xl;
+  @apply font-semibold;
+  @apply bg-indigo-600 text-white;
+  @apply hover:bg-indigo-700;
+  @apply transition-colors duration-200;
+  @apply cursor-pointer;
+}
+
+/* Empty State */
+.templates-empty {
+  @apply text-center py-20;
+}
+
+.templates-empty-icon {
+  @apply text-6xl mb-4 block;
+}
+
+.templates-empty p {
+  @apply text-lg text-gray-600 dark:text-gray-400;
+}
+
+/* ============================================
+   Pricing Page
+   ============================================ */
+.pricing-page {
+  @apply relative min-h-full;
+  @apply py-6 px-4 sm:px-6 lg:px-8;
+}
+
+.pricing-container {
+  @apply max-w-7xl mx-auto;
+}
+
+.pricing-header {
+  @apply text-center mb-12;
+}
+
+.pricing-title {
+  @apply text-3xl sm:text-4xl font-bold;
+  @apply text-gray-900 dark:text-white;
+  @apply mb-3;
+}
+
+.pricing-subtitle {
+  @apply text-lg text-gray-600 dark:text-gray-400;
+  @apply max-w-2xl mx-auto;
+}
+
+/* Pricing Cards */
+.pricing-cards {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-6;
+  @apply mb-12;
+}
+
+.pricing-card {
+  @apply relative;
+  @apply bg-white dark:bg-gray-800;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply rounded-2xl p-6;
+  @apply shadow-lg;
+  @apply transition-all duration-300;
+  @apply hover:shadow-xl hover:-translate-y-1;
+}
+
+.pricing-card.popular {
+  @apply border-indigo-500 dark:border-indigo-400;
+  @apply ring-2 ring-indigo-500/20;
+  @apply scale-105;
+}
+
+.pricing-card.featured {
+  @apply border-amber-500 dark:border-amber-400;
+}
+
+.pricing-popular-badge {
+  @apply absolute -top-3 left-1/2 -translate-x-1/2;
+  @apply px-4 py-1 rounded-full;
+  @apply bg-indigo-600 text-white;
+  @apply text-sm font-semibold;
+  @apply shadow-lg;
+}
+
+.pricing-card-header {
+  @apply text-center mb-4;
+}
+
+.pricing-icon {
+  @apply text-4xl block mb-2;
+}
+
+.pricing-name {
+  @apply text-2xl font-bold;
+  @apply text-gray-900 dark:text-white;
+}
+
+.pricing-name-th {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+}
+
+.pricing-description {
+  @apply text-sm text-gray-600 dark:text-gray-400;
+  @apply text-center mb-6;
+  @apply min-h-[3rem];
+}
+
+.pricing-price-section {
+  @apply text-center mb-6;
+  @apply py-4 border-y border-gray-100 dark:border-gray-700;
+}
+
+.pricing-original {
+  @apply text-sm text-gray-400 line-through;
+  @apply block mb-1;
+}
+
+.pricing-price {
+  @apply flex items-baseline justify-center gap-1;
+}
+
+.pricing-price.custom .pricing-amount {
+  @apply text-2xl;
+}
+
+.pricing-currency {
+  @apply text-xl text-gray-600 dark:text-gray-400;
+}
+
+.pricing-amount {
+  @apply text-4xl font-bold;
+  @apply text-gray-900 dark:text-white;
+}
+
+.pricing-period {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+  @apply block mt-1;
+}
+
+/* Pricing Features */
+.pricing-features {
+  @apply space-y-3 mb-6;
+}
+
+.pricing-features li {
+  @apply flex items-center gap-3;
+  @apply text-sm;
+}
+
+.pricing-features li.included {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.pricing-features li.excluded {
+  @apply text-gray-400 dark:text-gray-500;
+}
+
+.pricing-features .feature-icon {
+  @apply w-5 h-5 flex items-center justify-center;
+  @apply rounded-full text-xs font-bold;
+}
+
+.pricing-features li.included .feature-icon {
+  @apply bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400;
+}
+
+.pricing-features li.excluded .feature-icon {
+  @apply bg-gray-100 dark:bg-gray-700 text-gray-400;
+}
+
+.pricing-features .feature-name {
+  @apply flex-1;
+}
+
+.pricing-features .feature-limit {
+  @apply text-xs text-gray-400;
+}
+
+.pricing-cta {
+  @apply block w-full py-3 rounded-xl;
+  @apply text-center font-semibold;
+  @apply bg-gray-900 dark:bg-white text-white dark:text-gray-900;
+  @apply hover:bg-gray-800 dark:hover:bg-gray-100;
+  @apply transition-colors duration-200;
+}
+
+.pricing-card.popular .pricing-cta {
+  @apply bg-indigo-600 text-white;
+  @apply hover:bg-indigo-700;
+}
+
+/* Custom Quote CTA */
+.pricing-custom-cta {
+  @apply flex flex-col sm:flex-row items-center justify-between gap-4;
+  @apply p-6 rounded-2xl;
+  @apply bg-linear-to-r from-indigo-500 to-purple-600;
+  @apply text-white;
+  @apply mb-12;
+}
+
+.custom-cta-content h3 {
+  @apply text-xl font-bold mb-1;
+}
+
+.custom-cta-content p {
+  @apply text-indigo-100;
+}
+
+.custom-cta-btn {
+  @apply px-6 py-3 rounded-xl;
+  @apply bg-white text-indigo-600 font-semibold;
+  @apply hover:bg-indigo-50;
+  @apply transition-colors duration-200;
+  @apply whitespace-nowrap;
+}
+
+/* Add-on Services */
+.pricing-addons {
+  @apply mb-12;
+}
+
+.pricing-section-title {
+  @apply text-2xl font-bold;
+  @apply text-gray-900 dark:text-white;
+  @apply text-center mb-8;
+}
+
+.addons-grid {
+  @apply grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4;
+}
+
+.addon-card {
+  @apply p-4 rounded-xl;
+  @apply bg-white dark:bg-gray-800;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply text-center;
+  @apply transition-all duration-200;
+  @apply hover:shadow-lg hover:-translate-y-1;
+}
+
+.addon-icon {
+  @apply text-3xl block mb-2;
+}
+
+.addon-name {
+  @apply font-semibold text-sm;
+  @apply text-gray-900 dark:text-white;
+  @apply mb-1;
+}
+
+.addon-description {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+  @apply mb-3 min-h-[2.5rem];
+}
+
+.addon-price {
+  @apply text-sm;
+}
+
+.addon-amount {
+  @apply font-bold text-indigo-600 dark:text-indigo-400;
+}
+
+.addon-unit {
+  @apply text-gray-500;
+}
+
+/* FAQ Section */
+.pricing-faq {
+  @apply mb-12;
+}
+
+.faq-list {
+  @apply max-w-3xl mx-auto;
+  @apply space-y-3;
+}
+
+.faq-item {
+  @apply bg-white dark:bg-gray-800;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply rounded-xl overflow-hidden;
+}
+
+.faq-question {
+  @apply w-full flex items-center justify-between;
+  @apply p-4 text-left;
+  @apply font-medium text-gray-900 dark:text-white;
+  @apply hover:bg-gray-50 dark:hover:bg-gray-700/50;
+  @apply transition-colors duration-200;
+  @apply cursor-pointer;
+}
+
+.faq-toggle {
+  @apply w-6 h-6 flex items-center justify-center;
+  @apply bg-gray-100 dark:bg-gray-700 rounded-full;
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.faq-answer {
+  @apply px-4 pb-4;
+  @apply text-gray-600 dark:text-gray-400;
+  @apply text-sm leading-relaxed;
+}
+
+/* Contact CTA */
+.pricing-contact {
+  @apply text-center;
+  @apply p-8 rounded-2xl;
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+.pricing-contact h3 {
+  @apply text-xl font-bold;
+  @apply text-gray-900 dark:text-white;
+  @apply mb-2;
+}
+
+.pricing-contact p {
+  @apply text-gray-600 dark:text-gray-400;
+  @apply mb-6;
+}
+
+.contact-buttons {
+  @apply flex flex-col sm:flex-row items-center justify-center gap-4;
+}
+
+.contact-btn {
+  @apply px-6 py-3 rounded-xl;
+  @apply font-semibold;
+  @apply transition-all duration-200;
+}
+
+.contact-btn.phone {
+  @apply bg-indigo-600 text-white;
+  @apply hover:bg-indigo-700;
+}
+
+.contact-btn.line {
+  @apply bg-green-500 text-white;
+  @apply hover:bg-green-600;
+}
+

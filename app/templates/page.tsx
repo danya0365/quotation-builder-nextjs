@@ -1,5 +1,5 @@
-import { LandingView } from "@/src/presentation/components/landing";
-import { createServerLandingPresenter } from "@/src/presentation/presenters/landing";
+import { TemplatesView } from "@/src/presentation/components/templates";
+import { createServerTemplatesPresenter } from "@/src/presentation/presenters/templates";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -11,37 +11,33 @@ export const fetchCache = "force-no-store";
  * Generate metadata for the page
  */
 export async function generateMetadata(): Promise<Metadata> {
-  const presenter = createServerLandingPresenter();
+  const presenter = createServerTemplatesPresenter();
 
   try {
     return presenter.generateMetadata();
   } catch (error) {
     console.error("Error generating metadata:", error);
 
-    // Fallback metadata
     return {
-      title: "Quotation Builder | สร้างใบเสนอราคาอย่างมืออาชีพ",
-      description: "ระบบสร้างใบเสนอราคาแบบ Feature-based",
+      title: "เทมเพลต | Quotation Builder",
+      description: "เลือกเทมเพลตใบเสนอราคาสำเร็จรูป",
     };
   }
 }
 
 /**
- * Landing Page - Server Component for SEO optimization
- * Uses presenter pattern following Clean Architecture
+ * Templates Page - Server Component
  */
-export default async function LandingPage() {
-  const presenter = createServerLandingPresenter();
+export default async function TemplatesPage() {
+  const presenter = createServerTemplatesPresenter();
 
   try {
-    // Get view model from presenter
     const viewModel = await presenter.getViewModel();
 
-    return <LandingView initialViewModel={viewModel} />;
+    return <TemplatesView initialViewModel={viewModel} />;
   } catch (error) {
-    console.error("Error fetching landing data:", error);
+    console.error("Error fetching templates data:", error);
 
-    // Fallback UI
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -51,9 +47,9 @@ export default async function LandingPage() {
           <p className="text-muted mb-4">ไม่สามารถโหลดข้อมูลได้</p>
           <Link
             href="/"
-            className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors"
+            className="main-btn main-btn-primary"
           >
-            ลองอีกครั้ง
+            กลับหน้าแรก
           </Link>
         </div>
       </div>

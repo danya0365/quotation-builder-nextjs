@@ -1,5 +1,5 @@
-import { LandingView } from "@/src/presentation/components/landing";
-import { createServerLandingPresenter } from "@/src/presentation/presenters/landing";
+import { BuilderView } from "@/src/presentation/components/builder";
+import { createServerBuilderPresenter } from "@/src/presentation/presenters/builder";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -11,35 +11,34 @@ export const fetchCache = "force-no-store";
  * Generate metadata for the page
  */
 export async function generateMetadata(): Promise<Metadata> {
-  const presenter = createServerLandingPresenter();
+  const presenter = createServerBuilderPresenter();
 
   try {
     return presenter.generateMetadata();
   } catch (error) {
     console.error("Error generating metadata:", error);
 
-    // Fallback metadata
     return {
-      title: "Quotation Builder | สร้างใบเสนอราคาอย่างมืออาชีพ",
-      description: "ระบบสร้างใบเสนอราคาแบบ Feature-based",
+      title: "สร้างใบเสนอราคา | Quotation Builder",
+      description: "เลือกฟีเจอร์และสร้างใบเสนอราคาสำหรับโปรเจคซอฟต์แวร์",
     };
   }
 }
 
 /**
- * Landing Page - Server Component for SEO optimization
+ * Builder Page - Server Component for SEO optimization
  * Uses presenter pattern following Clean Architecture
  */
-export default async function LandingPage() {
-  const presenter = createServerLandingPresenter();
+export default async function BuilderPage() {
+  const presenter = createServerBuilderPresenter();
 
   try {
     // Get view model from presenter
     const viewModel = await presenter.getViewModel();
 
-    return <LandingView initialViewModel={viewModel} />;
+    return <BuilderView initialViewModel={viewModel} />;
   } catch (error) {
-    console.error("Error fetching landing data:", error);
+    console.error("Error fetching builder data:", error);
 
     // Fallback UI
     return (
@@ -51,9 +50,9 @@ export default async function LandingPage() {
           <p className="text-muted mb-4">ไม่สามารถโหลดข้อมูลได้</p>
           <Link
             href="/"
-            className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors"
+            className="main-btn main-btn-primary"
           >
-            ลองอีกครั้ง
+            กลับหน้าแรก
           </Link>
         </div>
       </div>
