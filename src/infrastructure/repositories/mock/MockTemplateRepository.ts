@@ -6,45 +6,68 @@
 
 import { Feature, ProjectType } from '@/src/application/repositories/IFeatureRepository';
 import {
-    ITemplateRepository,
-    Template,
-    TemplateCategory,
-    TemplateWithFeatures,
+  ITemplateRepository,
+  Template,
+  TemplateCategory,
+  TemplateWithFeatures,
 } from '@/src/application/repositories/ITemplateRepository';
 import { MockFeatureRepository } from './MockFeatureRepository';
 
 // Template definitions
 const MOCK_TEMPLATES: Template[] = [
-  // ============ Queue Management System ============
+  // ============ Queue Management System (Comprehensive) ============
   {
     id: 'queue-management-system',
     name: 'Queue Management System',
-    nameTh: 'ระบบจัดการคิว',
-    description: 'ระบบจัดการคิวครบวงจร สำหรับธนาคาร โรงพยาบาล หน่วยงานราชการ ร้านอาหาร พร้อมหน้าจอแสดงคิว แอปเรียกคิว และระบบวิเคราะห์ข้อมูล',
+    nameTh: 'ระบบจัดการคิว (ครบวงจร)',
+    description: 'ระบบจัดการคิวครบวงจรสำหรับธนาคาร โรงพยาบาล หน่วยงานราชการ ร้านอาหาร พร้อมตู้กดบัตรคิว จอแสดงคิว หน้าจอพนักงาน แอปจองคิว แจ้งเตือน LINE/SMS และระบบวิเคราะห์ข้อมูล',
     category: 'hospitality',
-    projectType: 'web-app',
+    projectType: 'internal-system',
     icon: '🎫',
     featureIds: [
-      'user-management',
-      'dashboard',
-      'notification-system',
-      'responsive-design',
-      'dark-mode',
-      'email-password-auth',
-      'role-based-access',
-      'rest-api',
-      'database-setup',
-      'analytics-dashboard',
-      'custom-reports',
-      'ssl-certificate',
-      'admin-panel',
-      'push-notifications',
+      // พื้นฐานระบบ
+      'user-management',           // ระบบจัดการผู้ใช้
+      'email-password-auth',       // Login Email/Password
+      'role-based-access',         // Role-Based Access Control
+      'database-setup',            // ออกแบบ Database
+      'ssl-certificate',           // SSL Certificate
+      'admin-panel',               // Admin Panel
+      
+      // Queue Core - หัวใจของระบบคิว
+      'queue-core-management',     // ระบบจัดการคิวหลัก (เรียกคิว, ข้ามคิว, โอนคิว)
+      'queue-service-types',       // ประเภทบริการ/แผนก
+      'queue-counter-management',  // ระบบจัดการเคาน์เตอร์
+      'queue-staff-interface',     // หน้าจอพนักงาน
+      'queue-vip-priority',        // ระบบลูกค้า VIP/Priority
+      'queue-operating-hours',     // ตั้งค่าเวลาให้บริการ
+      
+      // Display System - ระบบแสดงผล
+      'queue-display-main',        // จอแสดงคิวหลัก
+      'queue-display-counter',     // จอแสดงหน้าเคาน์เตอร์
+      'queue-audio-announcement',  // ระบบเสียงเรียกคิว
+      
+      // Customer Interface - ฝั่งลูกค้า
+      'queue-kiosk-ticket',        // ตู้กดบัตรคิว (Kiosk)
+      'queue-qr-checkin',          // เช็คอินด้วย QR Code
+      'queue-mobile-app',          // จองคิวผ่านมือถือ
+      'queue-appointment-booking', // ระบบนัดหมายล่วงหน้า
+      
+      // Notifications - การแจ้งเตือน
+      'sms-service',               // SMS Service
+      'line-integration',          // LINE Integration
+      'queue-line-notification',   // แจ้งเตือนคิวผ่าน LINE
+      
+      // Analytics & Reporting
+      'queue-realtime-dashboard',  // Dashboard สถานะคิว Real-time
+      'queue-analytics-report',    // รายงานวิเคราะห์คิว
+      'queue-wait-time-estimate',  // ประมาณการเวลารอคิว
+      'queue-customer-feedback',   // ระบบประเมินความพึงพอใจ
     ],
-    estimatedPrice: 195000,
-    estimatedDays: 45,
+    estimatedPrice: 548000,
+    estimatedDays: 90,
     isPopular: true,
     isFeatured: true,
-    tags: ['queue', 'hospital', 'bank', 'restaurant', 'government', 'display', 'analytics'],
+    tags: ['queue', 'hospital', 'bank', 'restaurant', 'government', 'kiosk', 'display', 'mobile', 'analytics', 'LINE', 'SMS'],
   },
 
   // ============ E-Commerce Platform ============
