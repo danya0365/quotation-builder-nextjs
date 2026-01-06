@@ -15,15 +15,134 @@ import { MockFeatureRepository } from './MockFeatureRepository';
 
 // Template definitions
 const MOCK_TEMPLATES: Template[] = [
-  // ============ Queue Management System (Comprehensive) ============
+  // ============ Queue Management System - BASIC ============
   {
-    id: 'queue-management-system',
-    name: 'Queue Management System',
-    nameTh: 'ระบบจัดการคิว (ครบวงจร)',
-    description: 'ระบบจัดการคิวครบวงจรสำหรับธนาคาร โรงพยาบาล หน่วยงานราชการ ร้านอาหาร พร้อมตู้กดบัตรคิว จอแสดงคิว หน้าจอพนักงาน แอปจองคิว แจ้งเตือน LINE/SMS และระบบวิเคราะห์ข้อมูล',
+    id: 'queue-basic',
+    name: 'Queue Basic',
+    nameTh: 'ระบบคิว Basic',
+    description: 'ระบบคิวพื้นฐาน เหมาะสำหรับร้านค้าขนาดเล็ก คลินิก ร้านอาหาร รองรับ 2 เคาน์เตอร์ พร้อมจอแสดงผลคิว',
+    category: 'hospitality',
+    projectType: 'internal-system',
+    icon: '🎟️',
+    featureIds: [
+      // พื้นฐานระบบ
+      'database-setup',            // ออกแบบ Database
+      'ssl-certificate',           // SSL Certificate
+      
+      // Queue Core - พื้นฐาน
+      'queue-core-management',     // ระบบจัดการคิวหลัก
+      'queue-counter-management',  // ระบบจัดการเคาน์เตอร์ (2 เคาน์เตอร์)
+      'queue-staff-interface',     // หน้าจอพนักงาน
+      
+      // Display System
+      'queue-display-main',        // จอแสดงคิวหลัก
+    ],
+    estimatedPrice: 35000,
+    estimatedDays: 14,
+    isPopular: false,
+    isFeatured: false,
+    tags: ['queue', 'basic', 'small-business', 'clinic', 'restaurant'],
+  },
+
+  // ============ Queue Management System - STANDARD ============
+  {
+    id: 'queue-standard',
+    name: 'Queue Standard',
+    nameTh: 'ระบบคิว Standard',
+    description: 'ระบบคิวมาตรฐาน รองรับหลายแผนก/ประเภทบริการ พร้อมตู้กดบัตรคิว จอแสดงคิวหน้าเคาน์เตอร์ และระบบเสียงเรียก',
     category: 'hospitality',
     projectType: 'internal-system',
     icon: '🎫',
+    featureIds: [
+      // พื้นฐานระบบ
+      'user-management',           // ระบบจัดการผู้ใช้
+      'email-password-auth',       // Login Email/Password
+      'database-setup',            // ออกแบบ Database
+      'ssl-certificate',           // SSL Certificate
+      
+      // Queue Core
+      'queue-core-management',     // ระบบจัดการคิวหลัก
+      'queue-service-types',       // ประเภทบริการ/แผนก
+      'queue-counter-management',  // ระบบจัดการเคาน์เตอร์
+      'queue-staff-interface',     // หน้าจอพนักงาน
+      'queue-operating-hours',     // ตั้งค่าเวลาให้บริการ
+      
+      // Display System
+      'queue-display-main',        // จอแสดงคิวหลัก
+      'queue-display-counter',     // จอแสดงหน้าเคาน์เตอร์
+      'queue-audio-announcement',  // ระบบเสียงเรียกคิว
+      
+      // Customer Interface
+      'queue-kiosk-ticket',        // ตู้กดบัตรคิว (Kiosk)
+    ],
+    estimatedPrice: 85000,
+    estimatedDays: 30,
+    isPopular: true,
+    isFeatured: false,
+    tags: ['queue', 'standard', 'kiosk', 'multi-department'],
+  },
+
+  // ============ Queue Management System - PROFESSIONAL ============
+  {
+    id: 'queue-professional',
+    name: 'Queue Professional',
+    nameTh: 'ระบบคิว Professional',
+    description: 'ระบบคิวระดับมืออาชีพ รองรับ VIP/Priority นัดหมายล่วงหน้า แจ้งเตือนผ่าน LINE/SMS พร้อม Dashboard สถานะ Real-time',
+    category: 'hospitality',
+    projectType: 'internal-system',
+    icon: '📋',
+    featureIds: [
+      // พื้นฐานระบบ
+      'user-management',           // ระบบจัดการผู้ใช้
+      'email-password-auth',       // Login Email/Password
+      'role-based-access',         // Role-Based Access Control
+      'database-setup',            // ออกแบบ Database
+      'ssl-certificate',           // SSL Certificate
+      'admin-panel',               // Admin Panel
+      
+      // Queue Core
+      'queue-core-management',     // ระบบจัดการคิวหลัก
+      'queue-service-types',       // ประเภทบริการ/แผนก
+      'queue-counter-management',  // ระบบจัดการเคาน์เตอร์
+      'queue-staff-interface',     // หน้าจอพนักงาน
+      'queue-vip-priority',        // ระบบลูกค้า VIP/Priority
+      'queue-operating-hours',     // ตั้งค่าเวลาให้บริการ
+      
+      // Display System
+      'queue-display-main',        // จอแสดงคิวหลัก
+      'queue-display-counter',     // จอแสดงหน้าเคาน์เตอร์
+      'queue-audio-announcement',  // ระบบเสียงเรียกคิว
+      
+      // Customer Interface
+      'queue-kiosk-ticket',        // ตู้กดบัตรคิว (Kiosk)
+      'queue-qr-checkin',          // เช็คอินด้วย QR Code
+      'queue-appointment-booking', // ระบบนัดหมายล่วงหน้า
+      
+      // Notifications
+      'sms-service',               // SMS Service
+      'line-integration',          // LINE Integration
+      'queue-line-notification',   // แจ้งเตือนคิวผ่าน LINE
+      
+      // Analytics
+      'queue-realtime-dashboard',  // Dashboard สถานะคิว Real-time
+      'queue-wait-time-estimate',  // ประมาณการเวลารอคิว
+    ],
+    estimatedPrice: 185000,
+    estimatedDays: 45,
+    isPopular: true,
+    isFeatured: true,
+    tags: ['queue', 'professional', 'vip', 'appointment', 'LINE', 'SMS', 'dashboard'],
+  },
+
+  // ============ Queue Management System - ENTERPRISE ============
+  {
+    id: 'queue-enterprise',
+    name: 'Queue Enterprise',
+    nameTh: 'ระบบคิว Enterprise',
+    description: 'ระบบจัดการคิวครบวงจรสำหรับธนาคาร โรงพยาบาล หน่วยงานราชการ ร้านอาหาร พร้อมตู้กดบัตรคิว จอแสดงคิว หน้าจอพนักงาน แอปจองคิว แจ้งเตือน LINE/SMS และระบบวิเคราะห์ข้อมูล',
+    category: 'hospitality',
+    projectType: 'internal-system',
+    icon: '🏢',
     featureIds: [
       // พื้นฐานระบบ
       'user-management',           // ระบบจัดการผู้ใช้
@@ -66,9 +185,9 @@ const MOCK_TEMPLATES: Template[] = [
     ],
     estimatedPrice: 548000,
     estimatedDays: 90,
-    isPopular: true,
+    isPopular: false,
     isFeatured: true,
-    tags: ['queue', 'hospital', 'bank', 'restaurant', 'government', 'kiosk', 'display', 'mobile', 'analytics', 'LINE', 'SMS'],
+    tags: ['queue', 'enterprise', 'hospital', 'bank', 'restaurant', 'government', 'kiosk', 'display', 'mobile', 'analytics', 'LINE', 'SMS'],
   },
 
   // ============ E-Commerce Platform ============
