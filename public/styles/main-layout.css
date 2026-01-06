@@ -732,7 +732,6 @@
 }
 
 .builder-summary-items {
-  @apply max-h-64 overflow-y-auto;
   @apply space-y-2 mb-4;
 }
 
@@ -755,6 +754,20 @@
 .builder-summary-item-price {
   @apply text-sm font-medium text-gray-900 dark:text-white;
   @apply ml-2;
+}
+
+.builder-summary-count {
+  @apply text-xs font-normal text-gray-500 dark:text-gray-400;
+  @apply ml-2;
+}
+
+.builder-summary-toggle {
+  @apply w-full py-2 mt-2;
+  @apply text-sm text-purple-600 dark:text-purple-400;
+  @apply hover:text-purple-700 dark:hover:text-purple-300;
+  @apply bg-transparent border-0 cursor-pointer;
+  @apply transition-colors duration-200;
+  @apply flex items-center justify-center gap-1;
 }
 
 .builder-summary-divider {

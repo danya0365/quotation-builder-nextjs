@@ -114,25 +114,49 @@ function FeatureCard({
  */
 function QuotationSummary({ onExport }: { onExport: () => void }) {
   const { items, subtotal, discount, tax, total, discountPercent, setDiscountPercent, resetQuotation } = useQuotationStore();
+  const [isExpanded, setIsExpanded] = useState(false);
+  
+  const MAX_VISIBLE_ITEMS = 5;
+  const hasMoreItems = items.length > MAX_VISIBLE_ITEMS;
+  const visibleItems = isExpanded ? items : items.slice(0, MAX_VISIBLE_ITEMS);
+  const hiddenCount = items.length - MAX_VISIBLE_ITEMS;
 
   return (
     <div className="builder-summary">
-      <h3 className="builder-summary-title">📋 สรุปใบเสนอราคา</h3>
+      <h3 className="builder-summary-title">
+        📋 สรุปใบเสนอราคา
+        {items.length > 0 && (
+          <span className="builder-summary-count">({items.length} รายการ)</span>
+        )}
+      </h3>
       
       <div className="builder-summary-items">
         {items.length === 0 ? (
           <p className="builder-summary-empty">ยังไม่ได้เลือกฟีเจอร์</p>
         ) : (
-          items.map((item) => (
-            <div key={item.featureId} className="builder-summary-item">
-              <span className="builder-summary-item-name">
-                {item.feature.icon} {item.feature.name}
-              </span>
-              <span className="builder-summary-item-price">
-                ฿{item.subtotal.toLocaleString()}
-              </span>
-            </div>
-          ))
+          <>
+            {visibleItems.map((item) => (
+              <div key={item.featureId} className="builder-summary-item">
+                <span className="builder-summary-item-name">
+                  {item.feature.icon} {item.feature.name}
+                </span>
+                <span className="builder-summary-item-price">
+                  ฿{item.subtotal.toLocaleString()}
+                </span>
+              </div>
+            ))}
+            {hasMoreItems && (
+              <button 
+                className="builder-summary-toggle"
+                onClick={() => setIsExpanded(!isExpanded)}
+              >
+                {isExpanded 
+                  ? '▲ แสดงน้อยลง' 
+                  : `▼ ดูอีก ${hiddenCount} รายการ`
+                }
+              </button>
+            )}
+          </>
         )}
       </div>
 

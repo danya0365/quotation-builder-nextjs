@@ -58,6 +58,7 @@ const MOCK_TEMPLATES: Template[] = [
       'queue-line-notification',   // แจ้งเตือนคิวผ่าน LINE
       
       // Analytics & Reporting
+      'analytics-dashboard',       // Analytics Dashboard (required by queue-analytics-report)
       'queue-realtime-dashboard',  // Dashboard สถานะคิว Real-time
       'queue-analytics-report',    // รายงานวิเคราะห์คิว
       'queue-wait-time-estimate',  // ประมาณการเวลารอคิว
@@ -87,6 +88,7 @@ const MOCK_TEMPLATES: Template[] = [
       'dark-mode',
       'email-password-auth',
       'social-login',
+      'role-based-access',
       'rest-api',
       'file-upload',
       'search-engine',
@@ -160,6 +162,7 @@ const MOCK_TEMPLATES: Template[] = [
       'multi-language',
       'email-password-auth',
       'social-login',
+      'role-based-access',
       'rest-api',
       'file-upload',
       'database-setup',
@@ -261,6 +264,7 @@ const MOCK_TEMPLATES: Template[] = [
       'dark-mode',
       'email-password-auth',
       'social-login',
+      'role-based-access',
       'rest-api',
       'database-setup',
       'payment-gateway',

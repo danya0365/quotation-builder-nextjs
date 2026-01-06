@@ -1,13 +1,32 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
+
+// Navigation links configuration
+const NAV_LINKS = [
+  { href: '/', label: 'หน้าแรก', icon: '🏠' },
+  { href: '/builder', label: 'สร้างใบเสนอราคา', icon: '🛠️' },
+  { href: '/templates', label: 'เทมเพลต', icon: '📑' },
+  { href: '/pricing', label: 'ราคา', icon: '💰' },
+];
 
 /**
  * MainHeader Component
  * Glass-morphism header with navigation and theme toggle
  */
 export function MainHeader() {
+  const pathname = usePathname();
+
+  // Check if link is active (exact match for home, startsWith for others)
+  const isActive = (href: string) => {
+    if (href === '/') {
+      return pathname === '/';
+    }
+    return pathname.startsWith(href);
+  };
+
   return (
     <header className="main-header">
       <div className="main-header-container">
@@ -19,22 +38,16 @@ export function MainHeader() {
 
         {/* Navigation */}
         <nav className="main-nav">
-          <Link href="/" className="main-nav-link main-nav-link-active">
-            <span className="main-nav-icon">🏠</span>
-            <span>หน้าแรก</span>
-          </Link>
-          <Link href="/builder" className="main-nav-link">
-            <span className="main-nav-icon">🛠️</span>
-            <span>สร้างใบเสนอราคา</span>
-          </Link>
-          <Link href="/templates" className="main-nav-link">
-            <span className="main-nav-icon">📑</span>
-            <span>เทมเพลต</span>
-          </Link>
-          <Link href="/pricing" className="main-nav-link">
-            <span className="main-nav-icon">💰</span>
-            <span>ราคา</span>
-          </Link>
+          {NAV_LINKS.map((link) => (
+            <Link 
+              key={link.href}
+              href={link.href} 
+              className={`main-nav-link ${isActive(link.href) ? 'main-nav-link-active' : ''}`}
+            >
+              <span className="main-nav-icon">{link.icon}</span>
+              <span>{link.label}</span>
+            </Link>
+          ))}
         </nav>
 
         {/* Actions */}
